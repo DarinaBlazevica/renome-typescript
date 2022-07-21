@@ -1,0 +1,32 @@
+@import "../../../App.css";
+
+.about {
+    margin: 20% 10px 70px;
+    position: relative;
+  }
+  
+  .about-text-container {
+    margin-top: 60%;
+  }
+  
+  .about__paragraph {
+    font-family: var(--montserrat);
+    font-size: 13px;
+    line-height: 30px;
+    font-weight: 700;
+    hyphens: auto;
+    text-align: justify;
+  }
+  
+  .about__image2 {
+    position: relative;
+    width: 80%;
+    left: 20%;
+  }
+  
+  .about__image1 {
+    width: 80%;
+    position: absolute;
+    margin-top: 40%;
+    left: 0;
+  }
