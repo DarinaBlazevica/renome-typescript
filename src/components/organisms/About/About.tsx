@@ -1,8 +1,20 @@
 import React from "react";
 import "../About/About.css";
-import { IAbout } from "./IAbout";
 
-const About: React.FC<IAbout> = (props) => {
+
+interface AboutImageData{
+  path: string;
+  alt: string;
+}
+
+interface AboutProps {
+  title: string;
+  subtitle: string;
+  content: string;
+  images: Array<AboutImageData>;
+}
+
+const About: React.FC<AboutProps> = (props) => {
   const About = props;
 
   return (
