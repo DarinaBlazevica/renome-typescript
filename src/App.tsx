@@ -1,5 +1,5 @@
 import "./App.css";
-import About from "../src/components/organisms/About/About";
+import About from "./components/organisms/About/About";
 import structure from "./structure.json";
 
 const App: React.FC = () => {
