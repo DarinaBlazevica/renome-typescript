@@ -9,7 +9,7 @@ interface AboutProps {
   title: string;
   subtitle: string;
   content: string;
-  images: Array<AboutImageData>;
+  images: AboutImageData[];
 }
 
 const About = (props: AboutProps) => {
