@@ -1,8 +1,6 @@
-import React from "react";
 import "../About/About.css";
 
-
-interface AboutImageData{
+interface AboutImageData {
   path: string;
   alt: string;
 }
@@ -14,7 +12,7 @@ interface AboutProps {
   images: Array<AboutImageData>;
 }
 
-const About: React.FC<AboutProps> = (props) => {
+const About = (props: AboutProps) => {
   const About = props;
 
   return (
