@@ -20,13 +20,13 @@
   
   .about__image2 {
     position: relative;
-    width: 80%;
-    left: 20%;
+    width: 90%;
+    left: 10%;
   }
   
   .about__image1 {
-    width: 80%;
+    width: 90%;
     position: absolute;
-    margin-top: 40%;
+    margin-top: 45%;
     left: 0;
   }

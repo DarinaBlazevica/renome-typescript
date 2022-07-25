@@ -20,13 +20,13 @@ const About = (props: AboutProps) => {
       <div className="about-image-container">
         <img
           className="about__image2"
-          src={aboutProps.images[0].path}
-          alt={aboutProps.images[0].alt}
+          src={aboutProps.images[1].path}
+          alt={aboutProps.images[1].alt}
         />
         <img
           className="about__image1"
-          src={aboutProps.images[1].path}
-          alt={aboutProps.images[1].alt}
+          src={aboutProps.images[0].path}
+          alt={aboutProps.images[0].alt}
         />
       </div>
       <div className="about-text-container">
