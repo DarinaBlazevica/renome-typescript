@@ -50,3 +50,7 @@ html {
   text-transform: uppercase;
   font-weight: var(--font-weight);
 }
+
+.renome {
+  font-family: var(--pacifico);
+}
