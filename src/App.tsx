@@ -1,33 +1,54 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import About from "./components/organisms/About/About";
 import Footer from "./components/organisms/Footer/Footer";
 import Gallery from "./components/organisms/Gallery/Gallery";
-import structure from "./structure.json";
 
 const App = () => {
-  const about = structure.about;
-  const gallery = structure.gallery;
-  const footer = structure.footer;
+  const [data, setData] = useState<any>();
+  const getData = async () => {
+    fetch("structure.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+
+      .then(function (structureJson) {
+        setData(structureJson);
+      });
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="App">
-      <About
-        title={about.title}
-        subtitle={about.subTitle}
-        content={about.text}
-        images={about.aboutImages}
-      ></About>
-      <Gallery
-        title={gallery.title}
-        subtitle={gallery.subTitle}
-        galleryImages={gallery.galleryImages}
-      ></Gallery>
-      <Footer
-        followUs={footer.followUs}
-        title={footer.title}
-        copyright={footer.copyright}
-        socialMedia={footer.socialMedia}
-      ></Footer>
+      {data && (
+        <>
+          <About
+            title={data.about.title}
+            subtitle={data.about.subTitle}
+            content={data.about.text}
+            images={data.about.aboutImages}
+          ></About>
+          <Gallery
+            title={data.gallery.title}
+            subtitle={data.gallery.subTitle}
+            galleryImages={data.gallery.galleryImages}
+          ></Gallery>
+          <Footer
+            followUs={data.footer.followUs}
+            title={data.footer.title}
+            copyright={data.footer.copyright}
+            socialMedia={data.footer.socialMedia}
+          ></Footer>
+        </>
+      )}
     </div>
   );
 };
