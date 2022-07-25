@@ -1,0 +1,9 @@
+@import "../../../App.css";
+
+.gallery {
+    background-color: var(--bg-color-gallery);
+    justify-content: center;
+    padding: 25px 0 75px;
+    margin-top: 25px;
+    text-align: center;
+}
