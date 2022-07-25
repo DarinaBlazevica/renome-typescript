@@ -1,6 +1,5 @@
-import GalleryGrid from "../../molecules/GalleryGrid/GalleryGrid";
+import GalleryGrid , { GalleryImagesData }from "../../molecules/GalleryGrid/GalleryGrid";
 import "../Gallery/Gallery.css";
-import { GalleryImagesData } from "../../molecules/GalleryGrid/GalleryGrid";
 
 interface GalleryProps {
   title: string;

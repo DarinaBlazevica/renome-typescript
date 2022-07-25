@@ -22,7 +22,12 @@ const App = () => {
         subtitle={gallery.subTitle}
         galleryImages={gallery.galleryImages}
       ></Gallery>
-      <Footer followUs={footer.followUs} title={footer.title} copyright={footer.copyright} socialMedia={footer.socialMedia}></Footer>
+      <Footer
+        followUs={footer.followUs}
+        title={footer.title}
+        copyright={footer.copyright}
+        socialMedia={footer.socialMedia}
+      ></Footer>
     </div>
   );
 };

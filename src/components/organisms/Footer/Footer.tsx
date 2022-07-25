@@ -1,6 +1,6 @@
 import "./Footer.css";
-import SocialMedia from "../../molecules/SocialMedia/SocialMedia";
-import { SocialMediaData } from "../../molecules/SocialMedia/SocialMedia";
+import SocialMedia, { SocialMediaData } from "../../molecules/SocialMedia/SocialMedia";
+
 
 interface FooterProps {
   followUs: string;
