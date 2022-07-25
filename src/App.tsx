@@ -14,7 +14,6 @@ const App = () => {
       },
     })
       .then(function (response) {
-        console.log(response);
         return response.json();
       })
 
