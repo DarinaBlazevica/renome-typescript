@@ -9,12 +9,12 @@ interface GalleryProps {
 }
 
 const Gallery = (props: GalleryProps) => {
-  const Gallery = props;
+  const galleryProps = props;
   return (
     <div className="gallery">
-      <h1 className="heading">{Gallery.title}</h1>
-      <h2 className="subheading">{Gallery.subtitle}</h2>
-      <GalleryGrid galleryImages={Gallery.galleryImages} />
+      <h1 className="heading">{galleryProps.title}</h1>
+      <h2 className="subheading">{galleryProps.subtitle}</h2>
+      <GalleryGrid galleryImages={galleryProps.galleryImages} />
     </div>
   );
 };

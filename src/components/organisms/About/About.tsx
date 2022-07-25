@@ -13,26 +13,26 @@ interface AboutProps {
 }
 
 const About = (props: AboutProps) => {
-  const About = props;
+  const aboutProps = props;
 
   return (
     <div className="about">
       <div className="about-image-container">
         <img
           className="about__image2"
-          src={About.images[0].path}
-          alt={About.images[0].alt}
+          src={aboutProps.images[0].path}
+          alt={aboutProps.images[0].alt}
         />
         <img
           className="about__image1"
-          src={About.images[1].path}
-          alt={About.images[1].alt}
+          src={aboutProps.images[1].path}
+          alt={aboutProps.images[1].alt}
         />
       </div>
       <div className="about-text-container">
-        <h1 className="heading">{About.title}</h1>
-        <h2 className="subheading">{About.subtitle}</h2>
-        <p className="about__paragraph">{About.content}</p>
+        <h1 className="heading">{aboutProps.title}</h1>
+        <h2 className="subheading">{aboutProps.subtitle}</h2>
+        <p className="about__paragraph">{aboutProps.content}</p>
       </div>
     </div>
   );

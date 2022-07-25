@@ -10,12 +10,11 @@ interface GalleryImagesProps {
 }
 
 const GalleryGrid = (props: GalleryImagesProps) => {
+  const galleryGrid = props;
 
-  const GalleryGrid = props;
-  
   return (
     <div className="gallery__images">
-      {GalleryGrid.galleryImages.map((item, i) => (
+      {galleryGrid.galleryImages.map((item, i) => (
         <img key={i} src={item.path} alt={item.alt} />
       ))}
     </div>
