@@ -1,0 +1,31 @@
+@import "../../../App.css";
+
+.contact {
+  padding: 25px 0;
+  background-color: var(--bg-color-contact);
+  text-align: center;
+  align-items: center;
+}
+
+.renome {
+  font-size: 20px;
+}
+
+.contact__socialmedia img {
+  padding-top: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.contact__follow-us {
+  font-size: 12px;
+  font-family: var(--axis);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.contact__copyright {
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-family: var(--axis);
+}
