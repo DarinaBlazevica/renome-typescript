@@ -1,10 +1,9 @@
-import GalleryGrid from "../../molecules/GalleryGrid/GalleryGrid";
+import GalleryGrid , { GalleryImagesData }from "../../molecules/GalleryGrid/GalleryGrid";
 import "../Gallery/Gallery.css";
-import { GalleryImagesData } from "../../molecules/GalleryGrid/GalleryGrid";
 
-interface GalleryProps {
+export interface GalleryProps {
   title: string;
-  subtitle: string;
+  subTitle: string;
   galleryImages: GalleryImagesData[];
 }
 
@@ -13,7 +12,7 @@ const Gallery = (props: GalleryProps) => {
   return (
     <div className="gallery">
       <h1 className="heading">{galleryProps.title}</h1>
-      <h2 className="subheading">{galleryProps.subtitle}</h2>
+      <h2 className="subheading">{galleryProps.subTitle}</h2>
       <GalleryGrid galleryImages={galleryProps.galleryImages} />
     </div>
   );

@@ -1,25 +1,59 @@
+import { useState, useEffect } from "react";
 import "./App.css";
-import About from "./components/organisms/About/About";
-import Gallery from "./components/organisms/Gallery/Gallery";
-import structure from "./structure.json";
+import About, { AboutProps } from "./components/organisms/About/About";
+import Footer, {FooterProps} from "./components/organisms/Footer/Footer";
+import Gallery , {GalleryProps} from "./components/organisms/Gallery/Gallery";
 
 const App = () => {
-  const about = structure.about;
-  const gallery = structure.gallery;
+  type JSONData = {
+    about: AboutProps;
+    gallery: GalleryProps;
+    footer: FooterProps;
+  };
+
+  const [data, setData] = useState<JSONData>();
+  const getData = async () => {
+    fetch("structure.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+
+      .then(function (structureJson) {
+        setData(structureJson);
+      });
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="App">
-      <About
-        title={about.title}
-        subtitle={about.subTitle}
-        content={about.text}
-        images={about.aboutImages}
-      ></About>
-      <Gallery
-        title={gallery.title}
-        subtitle={gallery.subTitle}
-        galleryImages={gallery.galleryImages}
-      ></Gallery>
+      {data && (
+        <>
+          <About
+            title={data.about.title}
+            subTitle={data.about.subTitle}
+            text={data.about.text}
+            aboutImages={data.about.aboutImages}
+          ></About>
+          <Gallery
+            title={data.gallery.title}
+            subTitle={data.gallery.subTitle}
+            galleryImages={data.gallery.galleryImages}
+          ></Gallery>
+          <Footer
+            followUs={data.footer.followUs}
+            title={data.footer.title}
+            copyright={data.footer.copyright}
+            socialMedia={data.footer.socialMedia}
+          ></Footer>
+        </>
+      )}
     </div>
   );
 };
