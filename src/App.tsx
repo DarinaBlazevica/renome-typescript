@@ -5,7 +5,13 @@ import Footer from "./components/organisms/Footer/Footer";
 import Gallery from "./components/organisms/Gallery/Gallery";
 
 const App = () => {
-  const [data, setData] = useState<any>();
+  type JSONData = {
+    about: any
+    gallery: any
+    footer: any
+  }
+
+  const [data, setData] = useState<JSONData>();
   const getData = async () => {
     fetch("structure.json", {
       headers: {
