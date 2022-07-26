@@ -5,11 +5,11 @@ interface AboutImageData {
   alt: string;
 }
 
-interface AboutProps {
+export interface AboutProps {
   title: string;
-  subtitle: string;
-  content: string;
-  images: AboutImageData[];
+  subTitle: string;
+  text: string;
+  aboutImages: AboutImageData[];
 }
 
 const About = (props: AboutProps) => {
@@ -20,19 +20,19 @@ const About = (props: AboutProps) => {
       <div className="about-image-container">
         <img
           className="about__image2"
-          src={aboutProps.images[1].path}
-          alt={aboutProps.images[1].alt}
+          src={aboutProps.aboutImages[1].path}
+          alt={aboutProps.aboutImages[1].alt}
         />
         <img
           className="about__image1"
-          src={aboutProps.images[0].path}
-          alt={aboutProps.images[0].alt}
+          src={aboutProps.aboutImages[0].path}
+          alt={aboutProps.aboutImages[0].alt}
         />
       </div>
       <div className="about-text-container">
         <h1 className="heading">{aboutProps.title}</h1>
-        <h2 className="subheading">{aboutProps.subtitle}</h2>
-        <p className="about__paragraph">{aboutProps.content}</p>
+        <h2 className="subheading">{aboutProps.subTitle}</h2>
+        <p className="about__paragraph">{aboutProps.text}</p>
       </div>
     </div>
   );

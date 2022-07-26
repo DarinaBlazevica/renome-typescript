@@ -2,7 +2,7 @@ import "./Footer.css";
 import SocialMedia, { SocialMediaData } from "../../molecules/SocialMedia/SocialMedia";
 
 
-interface FooterProps {
+export interface FooterProps {
   followUs: string;
   title: string;
   copyright: string;

@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import About from "./components/organisms/About/About";
-import Footer from "./components/organisms/Footer/Footer";
-import Gallery from "./components/organisms/Gallery/Gallery";
+import About, { AboutProps } from "./components/organisms/About/About";
+import Footer, {FooterProps} from "./components/organisms/Footer/Footer";
+import Gallery , {GalleryProps} from "./components/organisms/Gallery/Gallery";
 
 const App = () => {
   type JSONData = {
-    about: any
-    gallery: any
-    footer: any
-  }
+    about: AboutProps;
+    gallery: GalleryProps;
+    footer: FooterProps;
+  };
 
   const [data, setData] = useState<JSONData>();
   const getData = async () => {
@@ -37,13 +37,13 @@ const App = () => {
         <>
           <About
             title={data.about.title}
-            subtitle={data.about.subTitle}
-            content={data.about.text}
-            images={data.about.aboutImages}
+            subTitle={data.about.subTitle}
+            text={data.about.text}
+            aboutImages={data.about.aboutImages}
           ></About>
           <Gallery
             title={data.gallery.title}
-            subtitle={data.gallery.subTitle}
+            subTitle={data.gallery.subTitle}
             galleryImages={data.gallery.galleryImages}
           ></Gallery>
           <Footer
