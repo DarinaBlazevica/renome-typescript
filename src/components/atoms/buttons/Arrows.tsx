@@ -1,6 +1,6 @@
 import "./Arrows.css";
 
-export interface SliderProps {
+interface SliderProps {
   slideNext: () => void;
   slidePrev: () => void;
   disabled: boolean;
