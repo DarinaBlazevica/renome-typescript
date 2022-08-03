@@ -15,7 +15,7 @@ const Arrows = (props: SliderProps) => {
         type="button"
         className="carousel__arrow--left"
         id="left-arrow"
-        onClick={slide.slidePrev!}
+        onClick={slide.slidePrev}
       >
         <img src="./svg_icons/angle-left-solid.svg" alt="left arrow" />
       </button>
@@ -25,7 +25,7 @@ const Arrows = (props: SliderProps) => {
         type="button"
         className="carousel__arrow--right"
         id="right-arrow"
-        onClick={slide.slideNext!}
+        onClick={slide.slideNext}
       >
         <img src="./svg_icons/angle-right-solid.svg" alt="right arrow" />
       </button>
