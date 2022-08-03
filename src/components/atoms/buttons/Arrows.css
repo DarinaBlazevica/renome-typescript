@@ -1,0 +1,41 @@
+:root {
+--border: 2px solid #fff;
+--background-color: Transparent;
+--width: 55px;
+--height: 55px;
+}
+
+.carousel__arrow {
+  position: absolute;
+  left: 18px;
+  bottom: 50px;
+  width: 130px;
+}
+
+.carousel__arrow--right {
+  border: var(--border);
+  height: var(--height);
+  width: var(--width);
+  background-color: var(--background-color);
+}
+
+.carousel__arrow--left {
+  border: var(--border);
+  height: var(--height);
+  width: var(--width);
+  background-color: var(--background-color);
+}
+
+.carousel__space {
+  width: 15px;
+  display: inline-block;
+}
+
+.carousel__arrow img {
+    height: 28px;
+    width: 30px;
+}
+
+button {
+    padding-top: 5px;
+}   

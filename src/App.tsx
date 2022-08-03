@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import About, { AboutProps } from "./components/organisms/About/About";
+import Carousel, {CarouselProps} from "./components/organisms/Carousel/Carousel";
 import Footer, {FooterProps} from "./components/organisms/Footer/Footer";
 import Gallery , {GalleryProps} from "./components/organisms/Gallery/Gallery";
 
@@ -9,6 +10,7 @@ const App = () => {
     about: AboutProps;
     gallery: GalleryProps;
     footer: FooterProps;
+    carousel: CarouselProps;
   };
 
   const [data, setData] = useState<JSONData>();
@@ -35,6 +37,7 @@ const App = () => {
     <div className="App">
       {data && (
         <>
+        <Carousel carouselData={data.carousel.carouselData}></Carousel>
           <About
             title={data.about.title}
             subTitle={data.about.subTitle}
