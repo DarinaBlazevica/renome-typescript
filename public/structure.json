@@ -63,26 +63,28 @@
     "checkout": "Checkout"
   },
 
-  "carousel": [
-    {
-      "title": "Made with love",
-      "subTitle": "for you",
-      "altTag": "eggs and chicken",
-      "path": "images/carousel_img_1.png"
-    },
-    {
-      "title": "Made with hate",
-      "subTitle": "for myself",
-      "altTag": "something more",
-      "path": "images/carousel_img_2.png"
-    },
-    {
-      "title": "Oranges and laptops",
-      "subTitle": "for everyone",
-      "altTag": "oranges and laptops",
-      "path": "images/carousel_img_3.png"
-    }
-  ],
+  "carousel": {
+    "carouselData": [
+      {
+        "title": "Made with love",
+        "subTitle": "for you",
+        "altTag": "eggs and chicken",
+        "path": "images/carousel_img_1.png"
+      },
+      {
+        "title": "Made with hate",
+        "subTitle": "for myself",
+        "altTag": "something more",
+        "path": "images/carousel_img_2.png"
+      },
+      {
+        "title": "Oranges and laptops",
+        "subTitle": "for everyone",
+        "altTag": "oranges and laptops",
+        "path": "images/carousel_img_3.png"
+      }
+    ]
+  },
   "about": {
     "title": "About",
     "subTitle": "we create delicious memories",
