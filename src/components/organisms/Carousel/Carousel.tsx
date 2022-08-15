@@ -2,7 +2,7 @@ import "./Carousel.css";
 import { useState } from "react";
 import Arrows from "../../atoms/buttons/Arrows";
 
-export interface CarouselData {
+interface CarouselData {
   title: string;
   subTitle: string;
   altTag: string;

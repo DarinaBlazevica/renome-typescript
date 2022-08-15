@@ -1,0 +1,92 @@
+@import "../../../App.css";
+
+.menu {
+  display: block;
+  width: 100%;
+  background-color: var(--white);
+  padding: 0 10px;
+  font-family: var(--axis);
+  overflow-y: auto;
+}
+
+.menu a {
+  display: block;
+  padding: 20px 5px;
+  font-size: 12px;
+  font-family: var(--axis);
+  color: var(--black);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid var(--hover);
+  letter-spacing: 2px;
+}
+
+.menu .menu__feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px 5px 5px;
+}
+
+.menu .search__section {
+  display: block;
+  padding: 20px 5px;
+  font-size: 12px;
+  font-family: var(--axis);
+  border-bottom: 1px solid var(--hover);
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu a:last-child {
+  border-bottom: none;
+}
+
+.menu a:hover {
+  color: var(--subheading-color);
+}
+
+.menu-feature__btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--hover);
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+.menu-feature__btn img {
+  width: 15px;
+  height: 13px;
+}
+
+.search-icon {
+  padding-right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.search {
+  border: none;
+  background-color: transparent;
+  letter-spacing: 2px;
+  font-weight: 700;
+  outline: none;
+  flex-grow: 2;
+}
+
+input[type="text"] {
+  padding: 0;
+}
+
+.disable__scroll {
+  overflow-y: hidden;
+}
+
+@media (max-height: 480px) {
+  .menu {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
