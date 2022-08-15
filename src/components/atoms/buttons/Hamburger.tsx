@@ -1,11 +1,17 @@
 import "./Hamburger.css";
 
-interface Hamburger {
-    hamburgerStyle: string
+interface HamburgerProps {
+    hamburgerStyle: HamburgerStyle
     toggleMenu: () => void
 }
 
-const Hamburger = (props: Hamburger) => { 
+export enum HamburgerStyle {
+    close = "bar",
+    open = "change"
+  }
+
+
+const Hamburger = (props: HamburgerProps) => { 
     const hamburger = props;
 
 return(

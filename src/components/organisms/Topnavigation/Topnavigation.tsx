@@ -1,6 +1,6 @@
 import "./Topnavigation.css";
 import "../../atoms/buttons/Hamburger";
-import Hamburger from "../../atoms/buttons/Hamburger";
+import Hamburger , {HamburgerStyle} from "../../atoms/buttons/Hamburger";
 import { useEffect, useRef, useState } from "react";
 import CartMenu, { CartMenuData } from "../../molecules/CartMenu/CartMenu";
 import Menu, { MenuData } from "../../molecules/Menu/Menu";
@@ -14,12 +14,13 @@ export interface TopnavigationProps {
   menu: MenuData[];
 }
 
+
 const TopNavigation = (props: TopnavigationProps) => {
   const topnavigationProps = props;
 
   const [isCartMenuOpen, setIsCartMenuOpen] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [hamburgerStyle, setHamburgerStyle] = useState<string>("bar");
+  const [hamburgerStyle, setHamburgerStyle] = useState<HamburgerStyle>(HamburgerStyle.close);
   const [isSubMenuOpen, setIsSubMenuOpen] = useState<boolean>(false);
 
   const Ref = useRef<HTMLDivElement>(null);
@@ -32,7 +33,7 @@ const TopNavigation = (props: TopnavigationProps) => {
 
       if (!Ref.current?.contains(e.target as HTMLElement)) {
         setIsMenuOpen(false);
-        setHamburgerStyle("bar");
+        setHamburgerStyle(HamburgerStyle.close);
       }
       // if (
       //   subMenuRef.current &&
@@ -52,7 +53,7 @@ const TopNavigation = (props: TopnavigationProps) => {
   }, [Ref]);
 
   const toggleMenu = () => {
-    setHamburgerStyle(hamburgerStyle === "bar" ? "change" : "bar");
+    setHamburgerStyle(hamburgerStyle === HamburgerStyle.close ? HamburgerStyle.open : HamburgerStyle.close);
     setIsMenuOpen(
       isMenuOpen === false && isSubMenuOpen === false ? true : false
     );
@@ -63,7 +64,7 @@ const TopNavigation = (props: TopnavigationProps) => {
   const toggleCart = () => {
     setIsCartMenuOpen(!isCartMenuOpen);
     setIsMenuOpen(false);
-    setHamburgerStyle("bar");
+    setHamburgerStyle(HamburgerStyle.close);
   };
 
   const openSubMenu = () => {
