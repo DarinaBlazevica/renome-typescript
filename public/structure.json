@@ -3,64 +3,63 @@
     "title": "Renome",
     "cart": "svg_icons/cart-shopping.svg",
     "cart_content": "2",
-    "divider": "|"
-  },
-
-  "menu": [
-    {
-      "title": "Search",
-      "path": "svg_icons/magnifying-glass-solid.svg"
-    },
-    {
-      "title": "Home",
-      "url": "#"
-    },
-    {
-      "title": "About",
-      "url": "#"
-    },
-    {
-      "title": "Menu",
-      "url": "#"
-    },
-    {
-      "title": "Blog",
-      "url": "#"
-    },
-    {
-      "title": "Features",
-      "isSubMenu": true,
-      "url": "#",
-      "path": "svg_icons/angle-right-solid-black.svg",
-      "subMenu": [
-        {
-          "title": "One page",
-          "url": "#"
-        },
-        {
-          "title": "Protfolio",
-          "url": "#"
-        },
-        {
-          "title": "Shortcodes",
-          "url": "#"
-        }
-      ]
-    },
-    {
-      "title": "Shop",
-      "url": "#"
-    },
-    {
-      "title": "Contact",
-      "url": "#"
-    }
-  ],
-
-  "cartMenu": {
-    "price": "$44.50",
-    "viewCart": "View Cart",
-    "checkout": "Checkout"
+    "divider": "|", 
+    
+    "cartMenu": {
+      "price": "$44.50",
+      "viewCart": "View Cart",
+      "checkout": "Checkout"
+    }, 
+    "menu": [
+      {
+        "title": "Search",
+        "path": "svg_icons/magnifying-glass-solid.svg"
+      },
+      {
+        "title": "Home",
+        "url": "#"
+      },
+      {
+        "title": "About",
+        "url": "#"
+      },
+      {
+        "title": "Menu",
+        "url": "#"
+      },
+      {
+        "title": "Blog",
+        "url": "#"
+      },
+      {
+        "title": "Features",
+        "isSubMenu": true,
+        "url": "#",
+        "path": "svg_icons/angle-right-solid-black.svg",
+        "subMenu": [
+          {
+            "title": "One page",
+            "url": "#"
+          },
+          {
+            "title": "Protfolio",
+            "url": "#"
+          },
+          {
+            "title": "Shortcodes",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "title": "Shop",
+        "url": "#"
+      },
+      {
+        "title": "Contact",
+        "url": "#"
+      }
+    ]
   },
 
   "carousel": {

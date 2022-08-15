@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { CartMenuProps } from "./components/molecules/CartMenu/CartMenu";
 import About, { AboutProps } from "./components/organisms/About/About";
-import Carousel, {CarouselProps} from "./components/organisms/Carousel/Carousel";
-import Footer, {FooterProps} from "./components/organisms/Footer/Footer";
-import Gallery , {GalleryProps} from "./components/organisms/Gallery/Gallery";
+import Carousel, {
+  CarouselProps,
+} from "./components/organisms/Carousel/Carousel";
+import Footer, { FooterProps } from "./components/organisms/Footer/Footer";
+import Gallery, { GalleryProps } from "./components/organisms/Gallery/Gallery";
+import Topnavigation, {
+  TopnavigationProps,
+} from "./components/organisms/Topnavigation/Topnavigation";
 
 const App = () => {
   type JSONData = {
@@ -11,6 +17,8 @@ const App = () => {
     gallery: GalleryProps;
     footer: FooterProps;
     carousel: CarouselProps;
+    topnav: TopnavigationProps;
+    cartMenu: CartMenuProps;
   };
 
   const [data, setData] = useState<JSONData>();
@@ -37,7 +45,15 @@ const App = () => {
     <div className="App">
       {data && (
         <>
-        <Carousel carouselData={data.carousel.carouselData}></Carousel>
+          <Topnavigation
+            title={data.topnav.title}
+            cart={data.topnav.cart}
+            cart_content={data.topnav.cart_content}
+            divider={data.topnav.divider}
+            cartMenu={data.topnav.cartMenu}
+            menu={data.topnav.menu}
+          />
+          <Carousel carouselData={data.carousel.carouselData}></Carousel>
           <About
             title={data.about.title}
             subTitle={data.about.subTitle}
