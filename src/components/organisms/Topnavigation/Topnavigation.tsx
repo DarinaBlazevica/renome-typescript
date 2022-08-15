@@ -49,7 +49,7 @@ const TopNavigation = (props: TopnavigationProps) => {
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  }, [Ref, isCartMenuOpen]);
+  }, [Ref]);
 
   const toggleMenu = () => {
     setHamburgerStyle(hamburgerStyle === "bar" ? "change" : "bar");
