@@ -22,29 +22,18 @@ const TopNavigation = (props: TopnavigationProps) => {
   const [hamburgerStyle, setHamburgerStyle] = useState<string>("bar");
   const [isSubMenuOpen, setIsSubMenuOpen] = useState<boolean>(false);
 
-  const menuRef = useRef<HTMLDivElement>(null);
-  const cartRef = useRef<HTMLDivElement>(null);
-  const subMenuRef = useRef<HTMLDivElement>(null);
+  const Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (e: Event) => {
-      if (
-        !isCartMenuOpen &&
-        cartRef.current &&
-        !cartRef.current.contains(e.target as HTMLInputElement)
-      ) {
-        console.log("outsideClick active");
+      if (!Ref.current?.contains(e.target as HTMLElement)) {
         setIsCartMenuOpen(false);
       }
 
-      // if (
-      //   menuRef.current &&
-      //   !menuRef.current.contains(e.target as Node) &&
-      //   isMenuOpen === true
-      // ) {
-      //   setIsMenuOpen(false);
-      //   setHamburgerStyle("bar");
-      // }
+      if (!Ref.current?.contains(e.target as HTMLElement)) {
+        setIsMenuOpen(false);
+        setHamburgerStyle("bar");
+      }
       // if (
       //   subMenuRef.current &&
       //   !subMenuRef.current.contains(e.target as HTMLElement) &&
@@ -55,12 +44,12 @@ const TopNavigation = (props: TopnavigationProps) => {
       // }
     };
 
-    document.body.addEventListener("click", handler);
+    document.addEventListener("mousedown", handler);
 
     return () => {
-      document.body.removeEventListener("click", handler);
+      document.removeEventListener("mousedown", handler);
     };
-  }, [cartRef]);
+  }, [Ref, isCartMenuOpen]);
 
   const toggleMenu = () => {
     setHamburgerStyle(hamburgerStyle === "bar" ? "change" : "bar");
@@ -92,10 +81,8 @@ const TopNavigation = (props: TopnavigationProps) => {
       <div className="top-nav__header-block">
         <div className="renome">{topnavigationProps.title}</div>
       </div>
-      <div className="top-nav__cart-block">
-        {isCartMenuOpen && (
-          <CartMenu cartMenu={topnavigationProps.cartMenu} ref={cartRef} />
-        )}
+      <div className="top-nav__cart-block" ref={Ref}>
+        {isCartMenuOpen && <CartMenu cartMenu={topnavigationProps.cartMenu} />}
         <img
           className="top-nav__shopping-cart"
           src={topnavigationProps.cart}
@@ -116,7 +103,6 @@ const TopNavigation = (props: TopnavigationProps) => {
         <Menu
           menu={topnavigationProps.menu}
           openSubMenu={() => openSubMenu()}
-          ref={menuRef}
         />
       )}
       {/* {isSubMenuOpen && (

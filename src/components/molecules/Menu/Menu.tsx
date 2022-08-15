@@ -1,4 +1,3 @@
-import React, { ForwardedRef, forwardRef } from "react";
 import "./Menu.css";
 
 export interface MenuData {
@@ -8,12 +7,12 @@ export interface MenuData {
 }
 
 export interface MenuProps {
-  openSubMenu?: ()=> void
-  menu: MenuData[]
+  openSubMenu?: () => void;
+  menu: MenuData[];
 }
 
-const Menu = forwardRef((props: MenuProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const menuProps = props;
+const Menu = (props: MenuProps) => {
+  const menuProps = props;
 
   const setMenuContent = (item: MenuData, i: number) => {
     if (item.title === "Search") {
@@ -51,11 +50,11 @@ const Menu = forwardRef((props: MenuProps, ref: ForwardedRef<HTMLDivElement>) =>
     }
   };
   return (
-    <div className="menu" ref= {ref}>
+    <div className="menu">
       {menuProps.menu.map((item, i) => {
         return setMenuContent(item, i);
       })}
     </div>
   );
-});
+};
 export default Menu;
