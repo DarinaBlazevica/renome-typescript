@@ -1,0 +1,61 @@
+@import "../../../App.css";
+
+.sub-menu {
+  display: block;
+  width: 100%;
+  background-color: var(--white);
+  padding: 0 10px;
+  font-family: var(--axis);
+}
+
+.sub-menu div {
+  display: block;
+  padding: 20px 5px;
+  font-size: 12px;
+  font-family: var(--axis);
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid var(--hover);
+  letter-spacing: 2px;
+}
+
+.sub-menu div:hover {
+  color: var(--subheading-color);
+}
+
+.sub-menu .top-nav__sub-navigation__back {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 5px 5px 0px;
+  text-transform: uppercase;
+}
+
+.sub-menu div:last-child {
+  border-bottom: none;
+}
+
+.top-nav__sub-navigation a:hover {
+  color: var(--subheading-color);
+}
+
+.top-nav__sub-navigation__backbtn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--hover);
+  background-color: transparent;
+  margin-left: 10px;
+}
+
+.top-nav__sub-navigation__backbtn img {
+  width: 15px;
+  height: 13px;
+}
+
+@media (max-height: 300px) {
+  .sub-menu  {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
