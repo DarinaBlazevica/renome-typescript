@@ -1,9 +1,10 @@
 import "./Topnavigation.css";
 import "../../atoms/buttons/Hamburger";
-import Hamburger , {HamburgerStyle} from "../../atoms/buttons/Hamburger";
+import Hamburger, { HamburgerStyle } from "../../atoms/buttons/Hamburger";
 import { useEffect, useRef, useState } from "react";
 import CartMenu, { CartMenuData } from "../../molecules/CartMenu/CartMenu";
 import Menu, { MenuData } from "../../molecules/Menu/Menu";
+import Subnavigation from "../../molecules/Subnavigation/Subnavigation";
 
 export interface TopnavigationProps {
   title: string;
@@ -14,13 +15,14 @@ export interface TopnavigationProps {
   menu: MenuData[];
 }
 
-
 const TopNavigation = (props: TopnavigationProps) => {
   const topnavigationProps = props;
 
   const [isCartMenuOpen, setIsCartMenuOpen] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [hamburgerStyle, setHamburgerStyle] = useState<HamburgerStyle>(HamburgerStyle.close);
+  const [hamburgerStyle, setHamburgerStyle] = useState<HamburgerStyle>(
+    HamburgerStyle.close
+  );
   const [isSubMenuOpen, setIsSubMenuOpen] = useState<boolean>(false);
 
   const Ref = useRef<HTMLDivElement>(null);
@@ -29,20 +31,10 @@ const TopNavigation = (props: TopnavigationProps) => {
     const handler = (e: Event) => {
       if (!Ref.current?.contains(e.target as HTMLElement)) {
         setIsCartMenuOpen(false);
-      }
-
-      if (!Ref.current?.contains(e.target as HTMLElement)) {
+        setIsSubMenuOpen(false);
         setIsMenuOpen(false);
         setHamburgerStyle(HamburgerStyle.close);
       }
-      // if (
-      //   subMenuRef.current &&
-      //   !subMenuRef.current.contains(e.target as HTMLElement) &&
-      //   isSubMenuOpen === true
-      // ) {
-      //   setIsSubMenuOpen(false);
-      //   setHamburgerStyle("bar");
-      // }
     };
 
     document.addEventListener("mousedown", handler);
@@ -52,8 +44,18 @@ const TopNavigation = (props: TopnavigationProps) => {
     };
   }, [Ref]);
 
+  {
+    isMenuOpen || isSubMenuOpen
+      ? document.body.classList.add("disable__scroll")
+      : document.body.classList.remove("disable__scroll");
+  }
+
   const toggleMenu = () => {
-    setHamburgerStyle(hamburgerStyle === HamburgerStyle.close ? HamburgerStyle.open : HamburgerStyle.close);
+    setHamburgerStyle(
+      hamburgerStyle === HamburgerStyle.close
+        ? HamburgerStyle.open
+        : HamburgerStyle.close
+    );
     setIsMenuOpen(
       isMenuOpen === false && isSubMenuOpen === false ? true : false
     );
@@ -65,24 +67,27 @@ const TopNavigation = (props: TopnavigationProps) => {
     setIsCartMenuOpen(!isCartMenuOpen);
     setIsMenuOpen(false);
     setHamburgerStyle(HamburgerStyle.close);
+    setIsSubMenuOpen(false);
   };
 
   const openSubMenu = () => {
-    setIsSubMenuOpen(true);
+    setHamburgerStyle(HamburgerStyle.open);
+    setIsSubMenuOpen(!isSubMenuOpen);
     setIsMenuOpen(false);
   };
 
   const closeSubMenu = () => {
     setIsSubMenuOpen(false);
     setIsMenuOpen(true);
+    setHamburgerStyle(HamburgerStyle.open);
   };
 
   return (
-    <nav className="top-nav">
+    <nav className="top-nav" ref={Ref}>
       <div className="top-nav__header-block">
         <div className="renome">{topnavigationProps.title}</div>
       </div>
-      <div className="top-nav__cart-block" ref={Ref}>
+      <div className="top-nav__cart-block">
         {isCartMenuOpen && <CartMenu cartMenu={topnavigationProps.cartMenu} />}
         <img
           className="top-nav__shopping-cart"
@@ -106,17 +111,13 @@ const TopNavigation = (props: TopnavigationProps) => {
           openSubMenu={() => openSubMenu()}
         />
       )}
-      {/* {isSubMenuOpen && (
-          <SubNavigation
-            ref={subMenuRef}
-            subnav={NavigationMenu}
-            backBtnMenu={() => closeSubMenu()}
-          />
-        )}
-  
-        {isMenuOpen || isSubMenuOpen
-          ? document.body.classList.add("disable__scroll")
-          : document.body.classList.remove("disable__scroll")} */}
+      {isSubMenuOpen && (
+        <Subnavigation
+          subMenu={topnavigationProps.menu}
+          backBtnMenu={() => closeSubMenu()}
+          title="Back"
+        />
+      )}
     </nav>
   );
 };

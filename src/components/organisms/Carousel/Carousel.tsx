@@ -8,6 +8,22 @@ interface CarouselData {
   altTag: string;
   path: string;
 }
+enum CarouselSlider {
+  justifyContentImg = "carousel-container__carousel",
+  justifyContentText = "carousel-text-container__text-carousel",
+  justifyNextSlide = "carousel-container__carousel justifyNext",
+  justifyPrevSlide = "carousel-container__carousel justifyPrevious",
+  justifyNextSlideText = "carousel-text-container__text-carousel justifyNext",
+  justifyPrevSlideText = "carousel-text-container__text-carousel justifyPrevious",
+  resetSliderImg = "carousel-container__carousel__slider resetSlide",
+  resetSliderText = "carousel-text-container__text-slider resetSlide",
+  sliderDirectionImg = "carousel-container__carousel__slider",
+  sliderDirectionText = "carousel-text-container__text-slider", 
+  sliderDirectionNext = "carousel-container__carousel__slider slideNext",
+  sliderDirectionPrev = "carousel-container__carousel__slider slidePrevious",
+  textSliderDirectionNext = "carousel-text-container__text-slider slideNext",
+  textSliderDirectionPrev = "carousel-text-container__text-slider slidePrevious"
+}
 
 export interface CarouselProps {
   carouselData: CarouselData[];
@@ -16,19 +32,11 @@ export interface CarouselProps {
 const Carousel = (props: CarouselProps) => {
   const carouselProps = props;
 
-  const [justifyContent, setJustifyContent] = useState(
-    "carousel-container__carousel"
-  );
-  const [slideDirection, setSlideDirection] = useState(
-    "carousel-container__carousel__slider"
-  );
+  const [justifyContent, setJustifyContent] = useState(CarouselSlider.justifyContentImg);
+  const [slideDirection, setSlideDirection] = useState(CarouselSlider.sliderDirectionImg);
 
-  const [justifyTextContent, setJustifyTextContent] = useState(
-    "carousel-text-container__text-carousel"
-  );
-  const [textSlideDirection, setTextSlideDirection] = useState(
-    "carousel-text-container__text-slider"
-  );
+  const [justifyTextContent, setJustifyTextContent] = useState(CarouselSlider.justifyContentText);
+  const [textSlideDirection, setTextSlideDirection] = useState(CarouselSlider.sliderDirectionText);
 
   const [direction, setDirection] = useState(-1);
 
@@ -39,11 +47,11 @@ const Carousel = (props: CarouselProps) => {
       setDirection(-1);
       carouselProps.carouselData.unshift(carouselProps.carouselData.pop()!);
     }
-    setJustifyContent("carousel-container__carousel justifyNext");
-    setSlideDirection("carousel-container__carousel__slider slideNext");
+    setJustifyContent(CarouselSlider.justifyNextSlide);
+    setSlideDirection(CarouselSlider.sliderDirectionNext);
 
-    setJustifyTextContent("carousel-text-container__text-carousel justifyNext");
-    setTextSlideDirection("carousel-text-container__text-slider slideNext");
+    setJustifyTextContent(CarouselSlider.justifyNextSlideText);
+    setTextSlideDirection(CarouselSlider.textSliderDirectionNext);
     setDisable(true);
   };
 
@@ -53,13 +61,11 @@ const Carousel = (props: CarouselProps) => {
       carouselProps.carouselData.push(carouselProps.carouselData.shift()!);
     }
 
-    setJustifyContent("carousel-container__carousel justifyPrevious");
-    setSlideDirection("carousel-container__carousel__slider slidePrevious");
+    setJustifyContent(CarouselSlider.justifyPrevSlide);
+    setSlideDirection(CarouselSlider.sliderDirectionPrev);
 
-    setJustifyTextContent(
-      "carousel-text-container__text-carousel justifyPrevious"
-    );
-    setTextSlideDirection("carousel-text-container__text-slider slidePrevious");
+    setJustifyTextContent(CarouselSlider.justifyPrevSlideText);
+    setTextSlideDirection(CarouselSlider.textSliderDirectionPrev);
     setDisable(true);
   };
 
@@ -69,8 +75,8 @@ const Carousel = (props: CarouselProps) => {
     } else {
       carouselProps.carouselData.push(carouselProps.carouselData.shift()!);
     }
-    setSlideDirection("carousel-container__carousel__slider resetSlide");
-    setTextSlideDirection("carousel-text-container__text-slider resetSlide");
+    setSlideDirection(CarouselSlider.resetSliderImg);
+    setTextSlideDirection(CarouselSlider.resetSliderText);
     setDisable(false);
   };
 
