@@ -1,11 +1,16 @@
-
 import "./Menu.css";
+
+export interface SubMenuData {
+  title: string;
+  url: string;
+}
 
 export interface MenuData {
   title: string;
   url: string;
   path?: string;
-  isSubMenu?: boolean
+  isSubMenu?: boolean;
+  subMenu?: SubMenuData[];
 }
 
 export interface MenuProps {

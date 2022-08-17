@@ -3,7 +3,7 @@ import "../../atoms/buttons/Hamburger";
 import Hamburger, { HamburgerStyle } from "../../atoms/buttons/Hamburger";
 import { useEffect, useRef, useState } from "react";
 import CartMenu, { CartMenuData } from "../../molecules/CartMenu/CartMenu";
-import Menu, { MenuData } from "../../molecules/Menu/Menu";
+import Menu, { MenuData, SubMenuData } from "../../molecules/Menu/Menu";
 import Subnavigation from "../../molecules/Subnavigation/Subnavigation";
 
 export interface TopnavigationProps {
@@ -13,6 +13,7 @@ export interface TopnavigationProps {
   divider: string;
   cartMenu: CartMenuData;
   menu: MenuData[];
+  subMenu: SubMenuData[]
 }
 
 const TopNavigation = (props: TopnavigationProps) => {
@@ -37,18 +38,18 @@ const TopNavigation = (props: TopnavigationProps) => {
       }
     };
 
+    {
+      isMenuOpen || isSubMenuOpen
+        ? document.body.classList.add("disable__scroll")
+        : document.body.classList.remove("disable__scroll");
+    }
+
     document.addEventListener("mousedown", handler);
 
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  }, [Ref]);
-
-  {
-    isMenuOpen || isSubMenuOpen
-      ? document.body.classList.add("disable__scroll")
-      : document.body.classList.remove("disable__scroll");
-  }
+  }, [Ref, isMenuOpen, isSubMenuOpen]);
 
   const toggleMenu = () => {
     setHamburgerStyle(

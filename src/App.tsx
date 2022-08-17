@@ -52,6 +52,7 @@ const App = () => {
             divider={data.topnav.divider}
             cartMenu={data.topnav.cartMenu}
             menu={data.topnav.menu}
+            subMenu={data.topnav.subMenu}
           />
           <Carousel carouselData={data.carousel.carouselData}></Carousel>
           <About
