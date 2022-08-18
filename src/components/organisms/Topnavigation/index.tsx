@@ -2,9 +2,9 @@ import "./Topnavigation.css";
 import "../../atoms/buttons/Hamburger";
 import Hamburger, { HamburgerStyle } from "../../atoms/buttons/Hamburger";
 import { useEffect, useRef, useState } from "react";
-import CartMenu, { CartMenuData } from "../../molecules/CartMenu/CartMenu";
-import Menu, { MenuData, SubMenuData } from "../../molecules/Menu/Menu";
-import Subnavigation from "../../molecules/Subnavigation/Subnavigation";
+import CartMenu, { CartMenuData } from "../../molecules/CartMenu";
+import Menu, { MenuData, SubMenuData } from "../../molecules/Menu";
+import Subnavigation from "../../molecules/Subnavigation";
 
 export interface TopnavigationProps {
   title: string;

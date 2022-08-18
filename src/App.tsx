@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { CartMenuProps } from "./components/molecules/CartMenu/CartMenu";
-import About, { AboutProps } from "./components/organisms/About/About";
+import { CartMenuProps } from "./components/molecules/CartMenu";
+import About, { AboutProps } from "./components/organisms/About";
 import Carousel, {
   CarouselProps,
-} from "./components/organisms/Carousel/Carousel";
-import Footer, { FooterProps } from "./components/organisms/Footer/Footer";
-import Gallery, { GalleryProps } from "./components/organisms/Gallery/Gallery";
+} from "./components/organisms/Carousel";
+import Footer, { FooterProps } from "./components/organisms/Footer";
+import Gallery, { GalleryProps } from "./components/organisms/Gallery";
 import Topnavigation, {
   TopnavigationProps,
-} from "./components/organisms/Topnavigation/Topnavigation";
+} from "./components/organisms/Topnavigation";
 
 const App = () => {
   type JSONData = {

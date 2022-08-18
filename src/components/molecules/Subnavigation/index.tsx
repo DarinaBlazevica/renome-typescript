@@ -1,5 +1,5 @@
 import Arrow from "../../../assets/svg/angle-left-solid-black.svg";
-import { MenuData, SubMenuData } from "../Menu/Menu";
+import { MenuData, SubMenuData } from "../Menu";
 import "./Subnavigation.css";
 
 interface SubnavigationProp {
