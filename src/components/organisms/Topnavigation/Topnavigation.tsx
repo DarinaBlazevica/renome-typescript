@@ -38,11 +38,10 @@ const TopNavigation = (props: TopnavigationProps) => {
       }
     };
 
-    {
       isMenuOpen || isSubMenuOpen
         ? document.body.classList.add("disable__scroll")
         : document.body.classList.remove("disable__scroll");
-    }
+
 
     document.addEventListener("mousedown", handler);
 
