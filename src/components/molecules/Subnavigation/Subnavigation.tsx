@@ -11,7 +11,6 @@ interface SubnavigationProp {
 
 const Subnavigation = (props: SubnavigationProp) => {
   const subnavigationProps = props;
-  console.log(subnavigationProps)
   const subMenuItems = subnavigationProps.subMenu.reduce((subMenu, item) => {
     if (item.isSubMenu && item.subMenu) return [...item.subMenu];
     return subMenu;
