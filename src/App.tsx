@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {!data ? (<Fallback />) : (
+      {!data ? (<Fallback title="Something went wrong" content="Please try to reload page"/>) : (
         <>
           <Topnavigation
             title={data.topnav.title}
