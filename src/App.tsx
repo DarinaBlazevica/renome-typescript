@@ -5,6 +5,7 @@ import About, { AboutProps } from "./components/organisms/About";
 import Carousel, {
   CarouselProps,
 } from "./components/organisms/Carousel";
+import Fallback from "./components/organisms/Fallback/Fallback";
 import Footer, { FooterProps } from "./components/organisms/Footer";
 import Gallery, { GalleryProps } from "./components/organisms/Gallery";
 import Topnavigation, {
@@ -43,7 +44,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {data && (
+      {!data ? (<Fallback title="Something went wrong" content="Please try to reload page"/>) : (
         <>
           <Topnavigation
             title={data.topnav.title}
